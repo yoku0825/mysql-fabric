@@ -65,7 +65,7 @@ class ErrorLog(_persistence.Persistable):
         "CREATE EVENT prune_error_log "
         "ON SCHEDULE EVERY %s SECOND "
         "DO DELETE FROM error_log WHERE "
-        "TIMEDIFF(UTC_TIMESTAMP(), reported) > MAKETIME(%s,0,0)"
+        "TIMEDIFF(UTC_TIMESTAMP(), reported) > MAKETIME(0,0,%s)"
     )
 
     ADD_FOREIGN_KEY_CONSTRAINT_SERVER_UUID = (
